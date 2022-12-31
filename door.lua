@@ -17,29 +17,29 @@ while (true) do
 	--SETS DOORS
 	if limegreendoor and magentadoor then
 		colors.test(redstone.setBundledOutput("back"), colors.magenta + colors.lime_green)
-	elseif limegreendoor
+	elseif limegreendoor then
 		redstone.setBundledOutput("back", colors.lime_green)
 		--Magenta door is open
 		if (os.clock() >= doorevent + doortime) then
 			magentadoor = true
 		end
 		
-	elseif magentadoor
+	elseif magentadoor then
 		redstone.setBundledOutput("back", colors.magenta)
 		--Lime door is open
 		if (os.clock() >= doorevent + doortime) then
 			limegreendoor = true
 		end
 		
-	else
+	elses
 		redstone.setBundledOutput("back", 0)
 	end
 	
 	--CHECKS BUTTONS
-	if ((blue or red) and limegreendoor)
+	if ((blue or red) and limegreendoor) then
 		magentadoor = false
 		doorevent = os.clock()
-	elseif ((green or yellow) and magentadoor)
+	elseif ((green or yellow) and magentadoor) then
 		limegreendoor = false
 		doorevent = os.clock()
 	end
